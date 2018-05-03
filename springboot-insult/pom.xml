@@ -87,6 +87,11 @@
       <scope>test</scope>
     </dependency>
 
+<dependency>
+	<groupId>org.json</groupId>
+	<artifactId>json</artifactId>
+</dependency>
+
     <!-- Spring Boot Developer Tools -->
     <dependency>
         <groupId>org.springframework.boot</groupId>
