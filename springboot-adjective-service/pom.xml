@@ -21,12 +21,7 @@
     <version>1.5.10-13</version>
   </parent>
 
-<<<<<<< HEAD
   <artifactId>springboot-adjective-service</artifactId>
-=======
-  <artifactId>springboot-insult-service</artifactId>
->>>>>>> d05767b86256c9029e5eac33f8943f756ca72f47
-
   <groupId>io.openshift.booster</groupId>
   <version>1.0.0-SNAPSHOT</version>
 
