@@ -1,7 +1,4 @@
 package io.openshift.booster.service.noun;
-
-
-
 	
 	public class Noun {
 

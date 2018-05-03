@@ -1,6 +1,4 @@
 package io.openshift.booster.service.insult;
-import java.net.URI;
-
 import javax.enterprise.context.ApplicationScoped;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -16,15 +14,11 @@ import org.jboss.resteasy.client.jaxrs.ResteasyWebTarget;
 import io.openshift.booster.service.adjective.AdjectiveService;
 import io.openshift.booster.service.model.Insult;
 import io.openshift.booster.service.model.Name;
-import io.openshift.booster.service.noun.Noun;
-import io.openshift.booster.service.noun.NounCommand;
 import io.openshift.booster.service.noun.NounService;
 
 @Path("/")
 @ApplicationScoped
 public class InsultService {
-	
-	
 	
 
     @GET
@@ -44,26 +38,15 @@ public class InsultService {
         
         ResteasyClient client = new ResteasyClientBuilder().build();
         ResteasyWebTarget rtarget = client.target("http://wildflyswarm-noun:8080/api");
-        
+        NounService nounService = rtarget.proxy(NounService.class); 
        
-       URI uri= new URI("http", null, serviceEntry.getAddress(), serviceEntry.getPort(), null, null, null);
+//       URI uri= new URI("http", null, serviceEntry.getAddress(), serviceEntry.getPort(), null, null, null);
         
-        
-      
-        NounService nounService = rtarget.proxy(NounService.class);
-       
-        
-        Noun n=new NounCommand("http://wildflyswarm-noun:8080/api").execute().getNoun();
-       
-        
-        
-        
+//        String n = new NounCommand("http://wildflyswarm-noun:8080/api").execute().getNoun();
        
         ResteasyClient adjClient = new ResteasyClientBuilder().build();
         ResteasyWebTarget adjTarget = adjClient.target("http://wildflyswarm-adj:8080/api");
         AdjectiveService adjService = adjTarget.proxy(AdjectiveService.class);
-        
-       
 
         return new Insult()
                 .noun(nounService.getNoun().getNoun())
