@@ -24,8 +24,7 @@
   </properties>
 
   <modules>
-    <module>name-service</module>
-    <module>greeting-service</module>
+    <module>gateway-service</module>
     <module>integration-tests</module>
   </modules>
 
