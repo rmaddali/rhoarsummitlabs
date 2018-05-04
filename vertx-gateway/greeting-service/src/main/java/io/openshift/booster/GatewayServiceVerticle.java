@@ -61,7 +61,7 @@ public class GatewayServiceVerticle extends AbstractVerticle {
         router.get("/metrics").handler(HystrixMetricHandler.create(vertx, "circuit-breaker"));
 
 
-        router.get("/api/greeting").handler(this::greeting);
+        router.get("/api/greeting").handler(this::dispatch);
         router.get("/api/cb-state").handler(
             rc -> rc.response()
                 .putHeader(CONTENT_TYPE.toString(), APPLICATION_JSON.toString())
@@ -73,7 +73,8 @@ public class GatewayServiceVerticle extends AbstractVerticle {
             .listen(8080);
     }
 
-    private void greeting(RoutingContext rc) {
+   
+    private void dispatch(RoutingContext rc) {
         
     	Single<String> adjectiveCommandWithFallback = circuit.rxExecuteCommandWithFallback(
             future ->
