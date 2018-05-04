@@ -8,17 +8,16 @@
     <version>1.0.0-SNAPSHOT</version>
   </parent>
 
-  <artifactId>greeting-service</artifactId>
+  <artifactId>gateway-service</artifactId>
 
 
   <packaging>jar</packaging>
 
-  <name>Greeting Service</name>
-  <description>Exposes a service service over HTTP calling the name service. This call is protected using
-    a circuit breaker</description>
+  <name>Gateway Service</name>
+
 
   <properties>
-    <vertx.verticle>io.openshift.booster.GreetingServiceVerticle</vertx.verticle>
+    <vertx.verticle>io.openshift.booster.GatewayServiceVerticle</vertx.verticle>
     <docker.skip>false</docker.skip>
   </properties>
 

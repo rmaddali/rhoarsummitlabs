@@ -10,7 +10,7 @@
 
 	<artifactId>integration-tests</artifactId>
 	<name>Integration Tests</name>
-	<description>Tests integration of both services</description>
+	<description>Tests integration of services</description>
 
 	<dependencies>
 		<dependency>

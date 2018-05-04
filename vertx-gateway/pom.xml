@@ -13,7 +13,7 @@
   <version>1.0.0-SNAPSHOT</version>
 
 
-  <name>106 - Circuit Breaker Mission with Vert.x</name>
+  <name>Circuit Breaker with Vert.x</name>
   <packaging>pom</packaging>
 
   <properties>
