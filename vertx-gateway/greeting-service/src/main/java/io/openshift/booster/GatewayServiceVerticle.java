@@ -89,7 +89,7 @@ public class GatewayServiceVerticle extends AbstractVerticle {
             error -> {
                 System.out.println("Fallback called for " + error.getMessage());
                 error.printStackTrace();
-                return "Fallback";
+                return "fallback-adjective";
             }
         );
         
@@ -106,7 +106,7 @@ public class GatewayServiceVerticle extends AbstractVerticle {
                 error -> {
                     System.out.println("Fallback called for " + error.getMessage());
                     error.printStackTrace();
-                    return "Fallback";
+                    return "fallback-noun";
                 }
             );
               
