@@ -23,7 +23,7 @@ import io.vertx.rxjava.ext.web.handler.StaticHandler;
 import io.vertx.rxjava.ext.web.handler.sockjs.SockJSHandler;
 import rx.Single;
 
-public class GreetingServiceVerticle extends AbstractVerticle {
+public class GatewayServiceVerticle extends AbstractVerticle {
 
     protected static final String template = "Congrats, %s %s!";
     private Map<String, String> response;
