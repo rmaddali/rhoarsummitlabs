@@ -34,12 +34,6 @@ public class AdjectiveServiceController {
     
     private List<Adjective> adjectives = new ArrayList<>();
 
-
-    
-
-    
-    
-    
     @RequestMapping("/api/adjective")
     public Adjective getAdjective() {
        

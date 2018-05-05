@@ -1,12 +1,16 @@
 package io.openshift.booster.service.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 public class Insult {
     private String noun;
 
-    private String adj1;
+    private String adjective;
 
+    @JsonIgnore
     private String adj2;
 
+    @JsonIgnore
     private String name;
 
     public String getNoun() {
@@ -18,12 +22,12 @@ public class Insult {
         return this;
     }
 
-    public String getAdj1() {
-        return adj1;
+    public String getAdjective() {
+        return adjective;
     }
 
     public Insult adj1(String adj1) {
-        this.adj1 = adj1;
+        this.adjective = adj1;
         return this;
     }
 

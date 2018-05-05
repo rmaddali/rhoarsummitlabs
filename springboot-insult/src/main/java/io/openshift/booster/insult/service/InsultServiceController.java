@@ -15,18 +15,15 @@
  */
 package io.openshift.booster.insult.service;
 
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import io.openshift.booster.service.GreetingProperties;
-import io.openshift.booster.*;
 @RestController
-
 public class InsultServiceController {
     
-	@Autowired
-	private GreetingProperties properties;
 	@Autowired
 	private final AdjectiveService adjService;
 	@Autowired
@@ -41,17 +38,23 @@ public class InsultServiceController {
 	@RequestMapping("/api/insult")
 	public Insult doGet() {
 		 
-		System.out.println("insult called=");
-		 String adj=adjService.getAdjective();
-		 System.out.println("adj returned="+adj);
+		 String adj = adjService.getAdjective();
+		 String noun = nounService.getNoun();
 		 
+		 Insult insult = new Insult();
+
+		 try {
+			
+			JSONObject jsonAdj = new JSONObject(adj);
+			JSONObject jsonNoun = new JSONObject(noun);
+			insult.setAdjective(jsonAdj.get("adjective").toString());	
+			insult.setNoun(jsonNoun.get("noun").toString());
+			
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
 		 
-		 
-		 String noun=nounService.getNoun();
-		 
-		 System.out.println("Adjective="+adj);
-		 System.out.println("Noun="+noun);
-		 
-		return new Insult(adj+noun);
+		 return insult;
 	}
+	
 }
